@@ -10,7 +10,7 @@
 	<name>Spring DI Styles</name>
 	<description>A tour of Spring 3 dependency injection styles</description>
 	<dependencies>
-		<!-- spring dependencies -->
+		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -21,12 +21,12 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>3.0.2.RELEASE</version>
 		</dependency>
-		<!-- necessary for @Configuration support -->
+		<!-- necessary for Spring's @Configuration support
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.2</version>
-		</dependency>
+		</dependency> -->
 		<!-- logging dependencies -->
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -44,18 +44,18 @@
 			<artifactId>hsqldb</artifactId>
 			<version>1.8.0.10</version>
 		</dependency>
-		<!-- JSR-330 @Inject -->
+		<!-- JSR-330 @Inject
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
-		</dependency>
-		<!-- EJB API (for @TransactionAttribute) -->
+		</dependency> -->
+		<!-- EJB API (for @TransactionAttribute)
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-ejb_3.1_spec</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- testing-related dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>

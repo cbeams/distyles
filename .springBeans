@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/java/com/bank/app/application-config.xml</config>
 		<config>src/main/java/com/bank/app/infrastructure-config.xml</config>
 		<config>src/main/java/com/bank/app/app-config.xml</config>
 	</configs>

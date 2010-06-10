@@ -2,10 +2,6 @@ package com.bank.service.internal;
 
 import static java.lang.String.format;
 
-import javax.ejb.TransactionAttribute;
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import com.bank.domain.Account;
 import com.bank.domain.InsufficientFundsException;
 import com.bank.domain.TransferConfirmation;
@@ -14,21 +10,18 @@ import com.bank.service.FeePolicy;
 import com.bank.service.TransferService;
 
 
-@Named
 public class TransferServiceImpl implements TransferService {
 	
 	private final AccountRepository accountRepository;
 	private final FeePolicy feePolicy;
 	private double minimumTransferAmount = 1.00;
 	
-	@Inject
 	public TransferServiceImpl(AccountRepository accountRepository, FeePolicy feePolicy) {
 		this.accountRepository = accountRepository;
 		this.feePolicy = feePolicy;
 	}
 
 	@Override
-	@TransactionAttribute
 	public TransferConfirmation transfer(double amount, String srcAcctId, String dstAcctId) throws InsufficientFundsException {
 		if (amount < minimumTransferAmount)
 			throw new IllegalArgumentException(

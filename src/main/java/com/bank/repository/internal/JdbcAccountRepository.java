@@ -3,8 +3,6 @@ package com.bank.repository.internal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,12 +11,10 @@ import org.springframework.jdbc.core.RowMapper;
 import com.bank.domain.Account;
 import com.bank.repository.AccountRepository;
 
-@Named
 public class JdbcAccountRepository implements AccountRepository {
 
 	private final JdbcTemplate jdbcTemplate;
 
-	@Inject
 	public JdbcAccountRepository(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

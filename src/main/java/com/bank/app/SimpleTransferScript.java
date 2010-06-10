@@ -1,6 +1,6 @@
 package com.bank.app;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bank.domain.InsufficientFundsException;
 import com.bank.repository.AccountRepository;
@@ -9,8 +9,7 @@ import com.bank.service.TransferService;
 public class SimpleTransferScript {
 
 	public static void main(String... args) throws InsufficientFundsException {
-		//ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/com/bank/app/application-config.xml");
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/com/bank/app/app-config.xml");
 		
 		TransferService transferService = ctx.getBean(TransferService.class);
 		AccountRepository accountRepository = ctx.getBean(AccountRepository.class);
