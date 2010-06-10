@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<bean id="tellerUI" class="com.bank.app.TellerUI">
+		<constructor-arg ref="transferService"/>
+	</bean>
+	
+	<bean id="transferService" class="com.bank.service.internal.TransferServiceImpl">
+		<constructor-arg ref="accountRepository"/>
+		<constructor-arg ref="feePolicy"/>
+		<property name="minimumTransferAmount" value="${minimum.transfer.amount}"/>
+	</bean>
+
+	<bean id="accountRepository" class="com.bank.repository.internal.InMemoryAccountRepository"/>
+
+	<bean id="feePolicy" class="com.bank.service.internal.FlatFeePolicy">
+		<constructor-arg value="${flatfee.amount}"/>
+	</bean>
+	
+	<context:property-placeholder location="classpath:com/bank/app/bank.properties"/>
+	
+</beans>
