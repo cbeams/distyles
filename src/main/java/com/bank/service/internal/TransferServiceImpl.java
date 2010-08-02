@@ -2,6 +2,8 @@ package com.bank.service.internal;
 
 import static java.lang.String.format;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.bank.domain.Account;
 import com.bank.domain.InsufficientFundsException;
 import com.bank.domain.TransferConfirmation;
@@ -22,6 +24,7 @@ public class TransferServiceImpl implements TransferService {
 	}
 
 	@Override
+	@Transactional
 	public TransferConfirmation transfer(double amount, String srcAcctId, String dstAcctId) throws InsufficientFundsException {
 		if (amount < minimumTransferAmount)
 			throw new IllegalArgumentException(
