@@ -6,6 +6,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 repositories {
+    // TODO: add $HOME/.m2/repository for convenience
     mavenCentral()
 }
 
