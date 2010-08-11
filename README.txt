@@ -6,7 +6,19 @@ Spring DI Styles webinar companion project
 Introduction
 ------------
 
-This project is build using Gradle (http://gradle.org).
+This project uses Git for source control (http://git-scm.com), and is hosted
+at GitHub (http://github.com/cbeams/distyles).
+
+To clone (check out) the project:
+
+    git clone git://github.com/cbeams/distyles.git
+
+If you don't have git installed, and would like a zip or tar of the sources:
+
+    http://github.com/cbeams/distyles/archives/master
+
+
+This project is built using Gradle (http://gradle.org).
 
 To execute build system tasks, simply run the 'gradle wrapper' script
 appropriate to your platform.  You'll notice these scripts are available in the
