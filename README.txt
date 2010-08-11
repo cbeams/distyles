@@ -39,24 +39,30 @@ project dependencies.  As a convenience, the build script is configured to look
 first in your ~/.m2/repository before fetching artifacts from maven central.
 
 
-Import the project into your IDE:
----------------------------------
-
-For Eclipse or STS (http://www.springsource.com/developer/sts), run
+Import the project into Eclipse/STS:
+------------------------------------
 
     gradlew eclipse
 
-will create .project and .classpath files, and will also retrive and link
-source jars. After this is complete, you can import the project as follows:
+to create .project and .classpath files. this command will also retrive and link
+dependency source jars. After this is complete, you can import the project as
+follows:
 
     File->Import->Existing Projects Into Workspace
 
+If usins STS (http://www.springsource.com/developer/sts), you'll also want to
+enable the Spring Project Nature by right clicking on the distyles project and
+selecting:
 
-For IntelliJ IDEA, run
+    Spring Tools->Add Spring Project Nature
+
+
+Import the project into IntellJ IDEA:
+-------------------------------------
 
     gradlew idea
 
-will create .iml, .ipr, and .iws files
+to create .iml, .ipr, and .iws files
 
 
 Run the interactive Teller UI:
