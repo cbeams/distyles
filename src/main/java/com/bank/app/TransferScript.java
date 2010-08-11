@@ -6,7 +6,7 @@ import com.bank.domain.InsufficientFundsException;
 import com.bank.repository.AccountRepository;
 import com.bank.service.TransferService;
 
-public class SimpleTransferScript {
+public class TransferScript {
 
 	public static void main(String... args) throws InsufficientFundsException {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/com/bank/app/app-config.xml");

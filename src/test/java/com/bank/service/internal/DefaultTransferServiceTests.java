@@ -1,7 +1,7 @@
 package com.bank.service.internal;
 
 
-import static com.bank.repository.internal.InMemoryAccountRepository.Data.*;
+import static com.bank.repository.internal.SimpleAccountRepository.Data.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -13,22 +13,22 @@ import com.bank.domain.InsufficientFundsException;
 import com.bank.domain.TransferConfirmation;
 import com.bank.repository.AccountNotFoundException;
 import com.bank.repository.AccountRepository;
-import com.bank.repository.internal.InMemoryAccountRepository;
+import com.bank.repository.internal.SimpleAccountRepository;
 import com.bank.service.FeePolicy;
 import com.bank.service.TransferService;
 import com.bank.service.internal.FlatFeePolicy;
-import com.bank.service.internal.TransferServiceImpl;
+import com.bank.service.internal.DefaultTransferService;
 import com.bank.service.internal.ZeroFeePolicy;
 
-public class TransferServiceImplTests {
+public class DefaultTransferServiceTests {
 	private AccountRepository accountRepository;
 	private TransferService transferService;
 	
 	@Before
 	public void setUp() {
-		accountRepository = new InMemoryAccountRepository();
+		accountRepository = new SimpleAccountRepository();
 		FeePolicy feePolicy = new ZeroFeePolicy();
-		transferService = new TransferServiceImpl(accountRepository, feePolicy);
+		transferService = new DefaultTransferService(accountRepository, feePolicy);
 		
 		assertThat(accountRepository.findById(A123_ID).getBalance(), equalTo(A123_INITIAL_BAL));
 		assertThat(accountRepository.findById(C456_ID).getBalance(), equalTo(C456_INITIAL_BAL));
@@ -124,7 +124,7 @@ public class TransferServiceImplTests {
 	public void testNonZeroFeePolicy() throws InsufficientFundsException {
 		double flatFee = 5.00;
 		double transferAmount = 10.00;
-		transferService = new TransferServiceImpl(accountRepository, new FlatFeePolicy(flatFee));
+		transferService = new DefaultTransferService(accountRepository, new FlatFeePolicy(flatFee));
 		transferService.transfer(transferAmount, A123_ID, C456_ID);
 		assertThat(accountRepository.findById(A123_ID).getBalance(), equalTo(A123_INITIAL_BAL-transferAmount-flatFee));
 		assertThat(accountRepository.findById(C456_ID).getBalance(), equalTo(C456_INITIAL_BAL+transferAmount));

@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 
 import com.bank.domain.TransferConfirmation;
@@ -15,6 +17,12 @@ import com.bank.service.TransferService;
 public class TellerUI {
 	
 	private final TransferService transferService;
+
+	public static void main(String... args) throws IOException {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/bank/app/TellerUI-config.xml");
+		TellerUI tellerUI = (TellerUI) ctx.getBean("tellerUI");
+		tellerUI.start();
+	}
 
 	public TellerUI(TransferService transferService) {
 		this.transferService = transferService;
@@ -46,4 +54,5 @@ public class TellerUI {
 			}
 		}
 	}
+	
 }

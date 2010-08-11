@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.3.3.201004202100-CI-R3763-B716]]></pluginVersion>
+	<pluginVersion><![CDATA[2.3.3.201007151000-M2]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/java/com/bank/app/infrastructure-config.xml</config>
-		<config>src/main/java/com/bank/app/app-config.xml</config>
+		<config>src/main/resources/com/bank/app/infrastructure-config.xml</config>
+		<config>src/main/resources/com/bank/app/TellerUI-config.xml</config>
 	</configs>
 	<configSets>
 		<configSet>

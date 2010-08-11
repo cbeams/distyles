@@ -31,8 +31,8 @@ eclipseClasspath.variables = [:]
 
 task ui(type: JavaExec) {
     group = 'Run'
-    description = 'Run the TellerBootstrap'
-    main = 'com.bank.app.SimpleTransferScript'
+    description = 'Run the TransferScript main() method'
+    main = 'com.bank.app.TransferScript'
     classpath = sourceSets.main.runtimeClasspath
 }
 

@@ -23,14 +23,14 @@ import com.bank.domain.TransferConfirmation;
 /**
  * System tests for {@link TransferService}.
  */
-@ContextConfiguration("/com/bank/app/application-config.xml")
+@ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TransferServiceTests {
 	
-	JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	TransferService transferService;
+	private TransferService transferService;
 	
 	@Autowired
 	void init(DataSource dataSource) {

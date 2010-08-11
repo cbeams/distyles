@@ -12,13 +12,13 @@ import com.bank.service.FeePolicy;
 import com.bank.service.TransferService;
 
 
-public class TransferServiceImpl implements TransferService {
+public class DefaultTransferService implements TransferService {
 	
 	private final AccountRepository accountRepository;
 	private final FeePolicy feePolicy;
 	private double minimumTransferAmount = 1.00;
 	
-	public TransferServiceImpl(AccountRepository accountRepository, FeePolicy feePolicy) {
+	public DefaultTransferService(AccountRepository accountRepository, FeePolicy feePolicy) {
 		this.accountRepository = accountRepository;
 		this.feePolicy = feePolicy;
 	}

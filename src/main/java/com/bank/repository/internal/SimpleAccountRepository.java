@@ -8,7 +8,7 @@ import com.bank.repository.AccountNotFoundException;
 import com.bank.repository.AccountRepository;
 
 
-public class InMemoryAccountRepository implements AccountRepository {
+public class SimpleAccountRepository implements AccountRepository {
 	
 	public static class Data {
 		public static final String A123_ID = "A123";
