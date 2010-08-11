@@ -1,1 +1,12 @@
-target
+# ignore the gradle output and cache directories
+/build
+/.gradle
+
+# ignore Eclipse metadata (users should run `gradle eclipse` to generate)
+.classpath
+.project
+
+# ignore IDEA metadata (users should run `gradle idea` to generate)
+*.iml
+*.ipr
+*.iws

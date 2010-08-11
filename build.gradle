@@ -1,0 +1,45 @@
+group = 'org.springframework.samples'
+version = '1.0.0.SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:3.0.3.RELEASE'
+    compile 'org.springframework:spring-jdbc:3.0.3.RELEASE'
+    //compile 'cglib:cglib-nodep:2.2'
+    compile 'hsqldb:hsqldb:1.8.0.10'
+    compile 'commons-logging:commons-logging:1.1.1'
+    compile 'log4j:log4j:1.2.16'
+    testCompile 'org.springframework:spring-test:3.0.3.RELEASE'
+    testCompile 'junit:junit:4.7'
+}
+
+// enable all compiler warnings (GRADLE-1077)
+[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
+
+// generate .classpath files without GRADLE_CACHE variable (GRADLE-1079)
+eclipseClasspath.variables = [:]
+
+
+
+task ui(type: JavaExec) {
+    group = 'Run'
+    description = 'Run the TellerBootstrap'
+    main = 'com.bank.app.TellerBootstrap'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task wrapper(type: Wrapper) {
+    group = 'Admin'
+    description = "Generates gradlew and gradlew.bat bootstrap scripts"
+    gradleVersion = '0.9-preview-3'
+    // place jar file and properties into a
+    // subdirectory to avoid root dir clutter
+    jarPath = 'src/build'
+}
