@@ -5,20 +5,13 @@
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
-	<enableImports><![CDATA[true]]></enableImports>
+	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/com/bank/app/teller-ui-config.xml</config>
 		<config>src/main/resources/com/bank/repository/internal/data-config.xml</config>
+		<config>src/main/resources/com/bank/app/teller-ui-config.xml</config>
 		<config>src/main/resources/com/bank/app/transfer-service-config.xml</config>
 		<config>src/test/resources/com/bank/service/TransferServiceTests-context.xml</config>
 	</configs>
 	<configSets>
-		<configSet>
-			<name><![CDATA[test]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-			</configs>
-		</configSet>
 	</configSets>
 </beansProjectDescription>

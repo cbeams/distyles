@@ -58,13 +58,17 @@ public class TransferReceipt {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder()
-			.append(format("Transferred $%.2f from account %s to %s, with fee amount: %.2f\n",
+			.append(format("Transferred %.2f from account %s to %s, with fee amount: %.2f\n",
 					transferAmount, initialSourceAccountCopy.getId(),
 					initialDestinationAccountCopy.getId(), feeAmount))
-			.append(format("\tinitial balance for account %s: %.2f; new balance: $%.2f\n",
-					initialSourceAccountCopy.getBalance(), finalSourceAccountCopy.getBalance()))
-			.append(format("\tinitial balance for account %s: %.2f; new balance: $%.2f\n",
-					initialDestinationAccountCopy.getBalance(), finalDestinationAccountCopy.getBalance()));
+			.append(format("\tinitial balance for account %s: %.2f; new balance: %.2f\n",
+					initialSourceAccountCopy.getId(),
+					initialSourceAccountCopy.getBalance(),
+					finalSourceAccountCopy.getBalance()))
+			.append(format("\tinitial balance for account %s: %.2f; new balance: %.2f\n",
+					initialDestinationAccountCopy.getId(),
+					initialDestinationAccountCopy.getBalance(),
+					finalDestinationAccountCopy.getBalance()));
 		return sb.toString();
 	}
 
