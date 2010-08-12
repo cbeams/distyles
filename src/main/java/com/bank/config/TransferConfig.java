@@ -14,17 +14,17 @@ public class TransferConfig {
 //	@Value("${flatfee.amount}")
 //	private double feeAmount;
 	
-	@Bean
+//	@Bean
 	public TransferService transferService() {
 		return new DefaultTransferService(accountRepository(), feePolicy());
 	}
 
-	@Bean
+//	@Bean
 	public AccountRepository accountRepository() {
 		return new SimpleAccountRepository();
 	}
 
-	@Bean
+//	@Bean
 	public FeePolicy feePolicy() {
 		return new ZeroFeePolicy();
 //		return new FlatFeePolicy(feeAmount);
