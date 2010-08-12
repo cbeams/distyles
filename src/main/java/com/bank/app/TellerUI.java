@@ -19,7 +19,7 @@ public class TellerUI {
 	private final TransferService transferService;
 
 	public static void main(String... args) throws IOException {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/bank/app/teller-ui-config.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/bank/config/teller-ui-config.xml");
 		TellerUI tellerUI = (TellerUI) ctx.getBean("tellerUI");
 		tellerUI.start();
 	}

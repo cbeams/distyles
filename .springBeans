@@ -7,10 +7,9 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/resources/com/bank/repository/internal/data-config.xml</config>
-		<config>src/main/resources/com/bank/app/teller-ui-config.xml</config>
-		<config>src/main/resources/com/bank/app/transfer-service-config.xml</config>
-		<config>src/test/resources/com/bank/service/TransferServiceTests-context.xml</config>
+		<config>src/main/resources/com/bank/config/data-config.xml</config>
+		<config>src/main/resources/com/bank/config/teller-ui-config.xml</config>
+		<config>src/main/resources/com/bank/config/transfer-service-config.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
