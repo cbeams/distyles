@@ -17,6 +17,7 @@ dependencies {
     compile 'hsqldb:hsqldb:1.8.0.10'
     compile 'commons-logging:commons-logging:1.1.1'
     compile 'log4j:log4j:1.2.16'
+    compile 'javax.inject:javax.inject:1'
     testCompile 'org.springframework:spring-test:3.0.3.RELEASE'
     testCompile 'junit:junit:4.7'
 }
