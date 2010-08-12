@@ -12,7 +12,7 @@ public class TransferScript {
 	public static void main(String... args) throws InsufficientFundsException {
 
 		ApplicationContext ctx =
-			new ClassPathXmlApplicationContext("/com/bank/config/transfer-service-config.xml");
+			new ClassPathXmlApplicationContext("/com/bank/config/transfer-service-annotation-config.xml");
 			//new AnnotationConfigApplicationContext(TransferConfig.class);
 		
 
