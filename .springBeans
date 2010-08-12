@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.3.3.201007151000-M2]]></pluginVersion>
+	<pluginVersion><![CDATA[2.3.3.201008112200-CI-R3808-B835]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
-	<enableImports><![CDATA[false]]></enableImports>
+	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/com/bank/repository/internal/data-config.xml</config>
 		<config>src/main/resources/com/bank/app/teller-ui-config.xml</config>
