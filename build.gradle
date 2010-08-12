@@ -13,7 +13,7 @@ repositories {
 dependencies {
     compile 'org.springframework:spring-context:3.0.3.RELEASE'
     compile 'org.springframework:spring-jdbc:3.0.3.RELEASE'
-    //compile 'cglib:cglib-nodep:2.2'
+    compile 'cglib:cglib-nodep:2.2'
     compile 'hsqldb:hsqldb:1.8.0.10'
     compile 'commons-logging:commons-logging:1.1.1'
     compile 'log4j:log4j:1.2.16'

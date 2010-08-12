@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bank.domain.InsufficientFundsException;
-import com.bank.domain.TransferConfirmation;
+import com.bank.domain.TransferReceipt;
 import com.bank.repository.AccountNotFoundException;
 import com.bank.repository.AccountRepository;
 import com.bank.repository.internal.SimpleAccountRepository;
@@ -38,11 +38,11 @@ public class DefaultTransferServiceTests {
 	public void testTransfer() throws InsufficientFundsException {
 		double transferAmount = 100.00;
 		
-		TransferConfirmation confirmation = transferService.transfer(transferAmount, A123_ID, C456_ID);
+		TransferReceipt receipt = transferService.transfer(transferAmount, A123_ID, C456_ID);
 		
-		assertThat(confirmation.getTransferAmount(), equalTo(transferAmount));
-		assertThat(confirmation.getSourceAccountBalance(), equalTo(A123_INITIAL_BAL-transferAmount));
-		assertThat(confirmation.getDestinationAccountBalance(), equalTo(C456_INITIAL_BAL+transferAmount));
+		assertThat(receipt.getTransferAmount(), equalTo(transferAmount));
+		assertThat(receipt.getFinalSourceAccount().getBalance(), equalTo(A123_INITIAL_BAL-transferAmount));
+		assertThat(receipt.getFinalDestinationAccount().getBalance(), equalTo(C456_INITIAL_BAL+transferAmount));
 		
 		assertThat(accountRepository.findById(A123_ID).getBalance(), equalTo(A123_INITIAL_BAL-transferAmount));
 		assertThat(accountRepository.findById(C456_ID).getBalance(), equalTo(C456_INITIAL_BAL+transferAmount));

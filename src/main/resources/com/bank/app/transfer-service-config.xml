@@ -5,10 +5,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	xmlns:context="http://www.springframework.org/schema/context">
 	
-	<bean id="tellerUI" class="com.bank.app.TellerUI">
-		<constructor-arg ref="transferService"/>
-	</bean>
-	
 	<bean id="transferService" class="com.bank.service.internal.DefaultTransferService">
 		<constructor-arg ref="accountRepository"/>
 		<constructor-arg ref="feePolicy"/>
@@ -22,7 +18,7 @@
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:/com/bank/app/bank.properties"/>
+		<property name="location" value="classpath:/com/bank/app/transfer-service.properties"/>
 	</bean>
 	
 </beans>

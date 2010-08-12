@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 
-import com.bank.domain.TransferConfirmation;
+import com.bank.domain.TransferReceipt;
 import com.bank.service.TransferService;
 
 public class TellerUI {
@@ -19,7 +19,7 @@ public class TellerUI {
 	private final TransferService transferService;
 
 	public static void main(String... args) throws IOException {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/bank/app/TellerUI-config.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/bank/app/teller-ui-config.xml");
 		TellerUI tellerUI = (TellerUI) ctx.getBean("tellerUI");
 		tellerUI.start();
 	}
@@ -45,7 +45,7 @@ public class TellerUI {
 				String srcAcctId = input[1];
 				String dstAcctId = input[2];
 				
-				TransferConfirmation conf = transferService.transfer(transferAmount, srcAcctId, dstAcctId);
+				TransferReceipt conf = transferService.transfer(transferAmount, srcAcctId, dstAcctId);
 				out.println();
 				out.println(conf);
 			} catch (Throwable t) {

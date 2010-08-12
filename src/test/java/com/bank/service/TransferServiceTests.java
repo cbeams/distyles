@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import com.bank.domain.InsufficientFundsException;
-import com.bank.domain.TransferConfirmation;
+import com.bank.domain.TransferReceipt;
 
 /**
  * System tests for {@link TransferService}.
@@ -55,8 +55,8 @@ public class TransferServiceTests {
 	public void transfer10Dollars() throws InsufficientFundsException {
 		assertThat(queryForBalance("A123"), equalTo(100.00));
 		final double transferAmount = 10.00;
-		TransferConfirmation conf = transferService.transfer(transferAmount, "A123", "C456");
-		double transferTotal =  transferAmount + conf.getFeeAmount();
+		TransferReceipt receipt = transferService.transfer(transferAmount, "A123", "C456");
+		double transferTotal =  transferAmount + receipt.getFeeAmount();
 		assertThat(queryForBalance("A123"), equalTo(100.00 - transferTotal));
 	}
 	

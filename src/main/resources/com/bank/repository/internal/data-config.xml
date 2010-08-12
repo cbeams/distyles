@@ -10,9 +10,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
-	<context:property-placeholder location="classpath:com/bank/app/bank.properties"/>
-	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="accountRepository" class="com.bank.repository.internal.JdbcAccountRepository">
+		<constructor-arg ref="dataSource"/>
+	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
