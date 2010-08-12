@@ -9,7 +9,7 @@
 	<configs>
 		<config>src/main/resources/com/bank/config/data-config.xml</config>
 		<config>src/main/resources/com/bank/config/teller-ui-config.xml</config>
-		<config>src/main/resources/com/bank/config/transfer-service-config.xml</config>
+		<config>src/main/resources/com/bank/config/transfer-xml-config.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

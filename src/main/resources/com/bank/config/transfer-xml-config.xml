@@ -18,7 +18,7 @@
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:/com/bank/config/transfer-service.properties"/>
+		<property name="location" value="classpath:/com/bank/config/transfer.properties"/>
 	</bean>
 	
 </beans>

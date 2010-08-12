@@ -11,7 +11,7 @@ public class InfrastructureConfig {
 	@Bean
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-		ppc.setLocation(new ClassPathResource("com/bank/config/transfer-service.properties"));
+		ppc.setLocation(new ClassPathResource("com/bank/config/transfer.properties"));
 		return ppc;
 	}
 }

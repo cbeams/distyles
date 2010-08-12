@@ -5,7 +5,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	xmlns:context="http://www.springframework.org/schema/context">
 	
-	<import resource="transfer-service-config.xml"/>
+	<import resource="transfer-xml-config.xml"/>
 	
 	<bean id="tellerUI" class="com.bank.app.TellerUI">
 		<constructor-arg ref="transferService"/>

@@ -12,8 +12,9 @@ public class TransferScript {
 	public static void main(String... args) throws InsufficientFundsException {
 
 		ApplicationContext ctx =
-			new ClassPathXmlApplicationContext("/com/bank/config/transfer-service-annotation-config.xml");
-			//new AnnotationConfigApplicationContext(TransferConfig.class);
+			new ClassPathXmlApplicationContext("/com/bank/config/transfer-xml-config.xml");
+//			new ClassPathXmlApplicationContext("/com/bank/config/transfer-annotation-config.xml");
+//			new AnnotationConfigApplicationContext(TransferConfig.class);
 		
 
 		TransferService transferService = (TransferService) ctx.getBean("transferService");
