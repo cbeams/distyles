@@ -2,7 +2,6 @@ package com.bank.service.internal;
 
 import static java.lang.String.format;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.domain.Account;
@@ -19,7 +18,6 @@ public class DefaultTransferService implements TransferService {
 	private final FeePolicy feePolicy;
 	private double minimumTransferAmount = 1.00;
 	
-	@Autowired
 	public DefaultTransferService(AccountRepository accountRepository, FeePolicy feePolicy) {
 		this.accountRepository = accountRepository;
 		this.feePolicy = feePolicy;
