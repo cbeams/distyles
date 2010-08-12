@@ -17,7 +17,7 @@ public class TransferScript {
 //			new AnnotationConfigApplicationContext(TransferConfig.class);
 		
 
-		TransferService transferService = (TransferService) ctx.getBean("transferService");
+		TransferService transferService = ctx.getBean(TransferService.class);
 
 		TransferReceipt receipt = transferService.transfer(10.00, "A123", "C456");
 

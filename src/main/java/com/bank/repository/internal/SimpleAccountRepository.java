@@ -3,11 +3,14 @@ package com.bank.repository.internal;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.bank.domain.Account;
 import com.bank.repository.AccountNotFoundException;
 import com.bank.repository.AccountRepository;
 
 
+@Repository
 public class SimpleAccountRepository implements AccountRepository {
 	
 	public static class Data {
