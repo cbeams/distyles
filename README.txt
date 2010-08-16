@@ -61,7 +61,7 @@ follows:
 
     File->Import->Existing Projects Into Workspace
 
-If usins STS (http://www.springsource.com/developer/sts), you'll also want to
+If using STS (http://www.springsource.com/developer/sts), you'll also want to
 enable the Spring Project Nature by right clicking on the distyles project and
 selecting:
 
