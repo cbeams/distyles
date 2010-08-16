@@ -29,8 +29,7 @@ dependencies {
 eclipseClasspath.variables = [:]
 
 
-
-task ui(type: JavaExec) {
+task runTransferScript(type: JavaExec) {
     group = 'Run'
     description = 'Run the TransferScript main() method'
     main = 'com.bank.app.TransferScript'

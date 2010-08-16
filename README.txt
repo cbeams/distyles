@@ -47,8 +47,7 @@ Note that 'build' includes compilation, testing, and packaging. For Maven users,
 `gradlew build` is roughly equivalent to `mvn package`.
 
 Of course, the first time you execute this task, Gradle will download all
-project dependencies.  As a convenience, the build script is configured to look
-first in your ~/.m2/repository before fetching artifacts from maven central.
+project dependencies.
 
 
 Import the project into Eclipse/STS:
@@ -77,11 +76,8 @@ Import the project into IntellJ IDEA:
 to create .iml, .ipr, and .iws files
 
 
-Run the interactive Teller UI:
+Run the TransferScript main():
 ------------------------------
 
-    gradlew ui
-
-and you will be prompted for input.
-
+    gradlew runTransferScript
 
