@@ -4,9 +4,14 @@
 
 # ignore Eclipse metadata (users should run `gradle eclipse` to generate)
 .classpath
+.project
+.settings
+bin
 
 # ignore IDEA metadata (users should run `gradle idea` to generate)
 *.iml
 *.ipr
 *.iws
-.settings
+
+# ignore vim swap files
+*.sw?

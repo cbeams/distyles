@@ -1,46 +1,50 @@
 group = 'org.springframework.samples'
-version = '1.0.0.SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
 repositories {
-    // TODO: add $HOME/.m2/repository for convenience
-    mavenCentral()
+    maven { url "http://repo.springsource.org/libs-release" }
 }
 
 dependencies {
-    compile 'org.springframework:spring-context:3.0.3.RELEASE'
-    compile 'org.springframework:spring-jdbc:3.0.3.RELEASE'
+    compile 'org.springframework:spring-context:3.1.1.RELEASE'
+    compile 'org.springframework:spring-context:3.1.1.RELEASE'
+    compile 'org.springframework:spring-jdbc:3.1.1.RELEASE'
+    compile 'org.aspectj:aspectjtools:1.6.11'
+    compile 'org.aspectj:aspectjrt:1.6.11'
+    compile 'org.aspectj:aspectjweaver:1.6.11'
     compile 'cglib:cglib-nodep:2.2'
     compile 'hsqldb:hsqldb:1.8.0.10'
     compile 'commons-logging:commons-logging:1.1.1'
     compile 'log4j:log4j:1.2.16'
     compile 'javax.inject:javax.inject:1'
-    testCompile 'org.springframework:spring-test:3.0.3.RELEASE'
-    testCompile 'junit:junit:4.7'
+    testCompile 'org.springframework:spring-test:3.1.1.RELEASE'
+    testCompile 'junit:junit:4.9'
 }
 
-// enable all compiler warnings (GRADLE-1077)
 [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
 
-// generate .classpath files without GRADLE_CACHE variable (GRADLE-1079)
-eclipseClasspath.variables = [:]
+eclipse {
+    project {
+        natures 'org.springframework.ide.eclipse.core.springnature'
+        buildCommand 'org.springframework.ide.eclipse.core.springbuilder'
+    }
+}
+
+
+// ensure java 1.6 compatibility
+sourceCompatibility=1.6
+targetCompatibility=1.6
 
 
 task runTransferScript(type: JavaExec) {
-    group = 'Run'
     description = 'Run the TransferScript main() method'
     main = 'com.bank.app.TransferScript'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task wrapper(type: Wrapper) {
-    group = 'Admin'
-    description = "Generates gradlew and gradlew.bat bootstrap scripts"
-    gradleVersion = '0.9-preview-3'
-    // place jar file and properties into a
-    // subdirectory to avoid root dir clutter
-    jarPath = 'src/build'
+    gradleVersion = '1.0-rc-3'
 }
