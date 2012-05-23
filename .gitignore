@@ -1,17 +1,20 @@
-# ignore the gradle output and cache directories
-/build
+# gradle output and cache directories
+build
 /.gradle
 
-# ignore Eclipse metadata (users should run `gradle eclipse` to generate)
+# Eclipse output and metadata (users should run `gradle eclipse` to generate)
 .classpath
 .project
 .settings
 bin
 
-# ignore IDEA metadata (users should run `gradle idea` to generate)
+# IDEA metadata (users should run `gradle idea` to generate)
 *.iml
 *.ipr
 *.iws
 
-# ignore vim swap files
+# vim swap files
 *.sw?
+
+# Structure101 config files
+/*.hsp

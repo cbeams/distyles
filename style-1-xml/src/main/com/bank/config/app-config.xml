@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:com/bank/config/app.properties"/>
+	</bean>
+
+	<bean id="dataSource"
+	      class="org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean">
+		<property name="databasePopulator">
+			<bean class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+				<property name="scripts">
+					<list>
+						<value>classpath:com/bank/config/schema.sql</value>
+						<value>classpath:com/bank/config/seed-data.sql</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+	      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+
+	<bean id="feePolicy" class="com.bank.service.internal.FlatFeePolicy">
+		<constructor-arg value="${flatfee.amount}"/>
+	</bean>
+
+	<bean id="accountRepository"
+	      class="com.bank.repository.internal.JdbcAccountRepository">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+
+	<bean id="transferService"
+	      class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<value>
+				transfer=PROPAGATION_REQUIRED
+			</value>
+		</property>
+		<property name="target">
+			<bean class="com.bank.service.internal.DefaultTransferService">
+				<constructor-arg ref="accountRepository"/>
+				<constructor-arg ref="feePolicy"/>
+				<property name="minimumTransferAmount" value="${minimum.transfer.amount}"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

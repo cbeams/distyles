@@ -1,48 +1,71 @@
-group = 'org.springframework.samples'
+configure(subprojects) {
+    group = 'org.springframework.samples.distyles'
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
 
-repositories {
-    maven { url "http://repo.springsource.org/libs-release" }
-}
+    repositories {
+        maven { url "http://repo.springsource.org/libs-release" }
+    }
 
-dependencies {
-    compile 'org.springframework:spring-context:3.1.1.RELEASE'
-    compile 'org.springframework:spring-context:3.1.1.RELEASE'
-    compile 'org.springframework:spring-jdbc:3.1.1.RELEASE'
-    compile 'org.aspectj:aspectjtools:1.6.11'
-    compile 'org.aspectj:aspectjrt:1.6.11'
-    compile 'org.aspectj:aspectjweaver:1.6.11'
-    compile 'cglib:cglib-nodep:2.2'
-    compile 'hsqldb:hsqldb:1.8.0.10'
-    compile 'commons-logging:commons-logging:1.1.1'
-    compile 'log4j:log4j:1.2.16'
-    compile 'javax.inject:javax.inject:1'
-    testCompile 'org.springframework:spring-test:3.1.1.RELEASE'
-    testCompile 'junit:junit:4.9'
-}
+    ext.springVersion = '3.1.1.RELEASE'
 
-[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
+    dependencies {
+        compile "org.springframework:spring-jdbc:${springVersion}"
+        compile 'hsqldb:hsqldb:1.8.0.10'
+        compile 'log4j:log4j:1.2.16'
+        testCompile 'junit:junit:4.9'
+    }
 
-eclipse {
-    project {
-        natures 'org.springframework.ide.eclipse.core.springnature'
-        buildCommand 'org.springframework.ide.eclipse.core.springbuilder'
+    eclipse {
+        project {
+            natures 'org.springframework.ide.eclipse.core.springnature'
+            buildCommand 'org.springframework.ide.eclipse.core.springbuilder'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main']
+            resources.srcDirs = ['src/main']
+        }
+        test {
+            java.srcDirs = ['src/test']
+            resources.srcDirs = ['src/test']
+        }
+    }
+
+    // ensure java 1.6 compatibility
+    sourceCompatibility=1.6
+    targetCompatibility=1.6
+
+    // show all compiler warnings
+    [compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
+
+    task runTransferScript(type: JavaExec) {
+        description = 'Run the TransferScript main() method'
+        main = 'com.bank.app.TransferScript'
+        classpath = sourceSets.main.runtimeClasspath
     }
 }
 
+configure([project(':style-2-namespace'),
+           project(':style-3-autowired'),
+           project(':style-4-javaconfig'),
+           project(':style-5-hybrid')]) {
+    dependencies {
+        // for @ContextConfiguration testing support
+        testCompile "org.springframework:spring-test:${springVersion}"
+    }
+}
 
-// ensure java 1.6 compatibility
-sourceCompatibility=1.6
-targetCompatibility=1.6
-
-
-task runTransferScript(type: JavaExec) {
-    description = 'Run the TransferScript main() method'
-    main = 'com.bank.app.TransferScript'
-    classpath = sourceSets.main.runtimeClasspath
+configure([project(':style-4-javaconfig'),
+           project(':style-5-hybrid')]) {
+    dependencies {
+        // for @Configuration class support
+        compile 'cglib:cglib-nodep:2.2'
+    }
 }
 
 task wrapper(type: Wrapper) {

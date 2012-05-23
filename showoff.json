@@ -1,0 +1,7 @@
+{
+  "name": "Spring DI Styles",
+  "description": "A tour of Dependency Injection Styles in Spring",
+  "sections": [
+    {"section":"slides"}
+  ]
+}

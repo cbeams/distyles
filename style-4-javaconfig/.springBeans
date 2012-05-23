@@ -5,7 +5,7 @@
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
-	<enableImports><![CDATA[true]]></enableImports>
+	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 	</configs>
 	<configSets>

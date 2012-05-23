@@ -1,0 +1,6 @@
+include 'style-0-nospring'
+include 'style-1-xml'
+include 'style-2-namespace'
+include 'style-3-autowired'
+include 'style-4-javaconfig'
+include 'style-5-hybrid'
