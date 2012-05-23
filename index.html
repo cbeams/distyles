@@ -1,0 +1,1937 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Configuration Enhancements in Spring 3.1</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none">
+  <div class="content subsection" ref="slides/intro/slides/1">
+<h1>Configuration Enhancements in Spring 3.1</h1>
+
+<br><br>
+
+
+<h2>Chris Beams</h2>
+
+<h3><em>SpringSource, VMware</em></h3>
+
+<br><br>
+
+
+<h2>Rossen Stoyanchev</h2>
+
+<h3><em>SpringSource, VMware</em></h3>
+</br>
+</br>
+</br></br></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/intro/slides/2">
+<h1>CHRIS BEAMS</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/intro/slides/3">
+<h1>ROSSEN STOYANCHEV</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/intro/slides/4">
+<h1>YOU</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="slides/time-machine/slides/1">
+<h1>time machine</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/2">
+<h1>Spring 1.0</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/3">
+<pre class="sh_xml"><code>&lt;beans/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/4">
+<pre class="sh_xml"><code>&lt;beans&gt;
+
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/5">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/6">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+    &lt;bean id="bar" class="com.foo.Bar"&gt;
+       &lt;property name="foo" ref="foo"/&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/7">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+    &lt;bean id="bar" class="com.foo.Bar"&gt;
+       &lt;property name="foo" ref="foo"/&gt;
+    &lt;/bean&gt;
+    &lt;bean .../&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/8">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+    &lt;bean id="bar" class="com.foo.Bar"&gt;
+       &lt;property name="foo" ref="foo"/&gt;
+    &lt;/bean&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/9">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+    &lt;bean id="bar" class="com.foo.Bar"&gt;
+       &lt;property name="foo" ref="foo"/&gt;
+    &lt;/bean&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/10">
+<pre class="sh_xml"><code>&lt;beans&gt;
+    &lt;bean id="foo" class="com.foo.Foo"/&gt;
+    &lt;bean id="bar" class="com.foo.Bar"&gt;
+       &lt;property name="foo" ref="foo"/&gt;
+    &lt;/bean&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;bean .../&gt;
+    &lt;import resource="more-beans.xml"/&gt;
+&lt;/beans&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/11">
+<h1>"Spring beans XML"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/time-machine/slides/12">
+<h1>Spring beans XML</h1>
+
+<ul>
+<li>simple</li>
+<li>general purpose</li>
+<li>flexible</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/time-machine/slides/13">
+<h1>But...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/time-machine/slides/14">
+<h1>Spring beans XML</h1>
+
+<ul>
+<li>verbose</li>
+<li>not type-safe</li>
+<li>special tooling</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/15">
+<h1>Spring 2.0</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/16">
+<pre class="sh_xml"><code>&lt;namespace:*/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/17">
+<h1>e.g.</h1>
+
+<pre class="sh_xml"><code>&lt;tx:annotation-driven/&gt;
+&lt;aop:aspectj-autoproxy/&gt;
+&lt;jee:jndi-lookup/&gt;
+&lt;util:list/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/18">
+<h1>"Spring XML namespaces"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/time-machine/slides/19">
+<h1>Spring XML namespaces</h1>
+
+<ul>
+<li>concise</li>
+<li>powerful</li>
+<li>easier to use</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/time-machine/slides/20">
+<h1>But...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/time-machine/slides/21">
+<h1>Spring XML namespaces</h1>
+
+<ul>
+<li>opaque</li>
+<li>non-extensible</li>
+<li>difficult to <a href="http://static.springsource.org/spring/docs/2.0.x/reference/extensible-xml.html">write your own</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/22">
+<h1>Spring 2.5</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/23">
+<pre class="sh_java"><code>@Autowired</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/24">
+<pre class="sh_java"><code>@Component</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/25">
+<pre class="sh_xml"><code>&lt;context:component-scan/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/26">
+<h1>"Annotation-Driven Injection"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/time-machine/slides/27">
+<h1>Annotation-Driven Injection</h1>
+
+<ul>
+<li><em>really</em> concise, convenient</li>
+<li>now widely used</li>
+<li>especially for MVC <code>@Controllers</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/time-machine/slides/28">
+<h1>But...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/time-machine/slides/29">
+<h1>Annotation-Driven Injection</h1>
+
+<ul>
+<li>can't wire up third-party code</li>
+<li>ambiguities can arise (enter <code>@Qualifier</code>)</li>
+<li>still requires xml to bootstrap</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/time-machine/slides/30">
+<h1>I mean, if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Component
+public class TehAwesome {
+    @Autowired
+    public void setStuff(Stuff stuff) { ... }
+}</code></pre>
+
+<br/><br/><br/>
+
+
+<br/><br/><br/>
+
+
+<br/><br/><br/>
+
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/time-machine/slides/31">
+<h1>I mean, if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Component
+public class TehAwesome {
+    @Autowired
+    public void setStuff(Stuff stuff) { ... }
+}</code></pre>
+
+<h1>... then <em>this</em> is kind of ironic, right?</h1>
+
+<pre class="sh_xml"><code>&lt;context:component-scan base-package="com.win"/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center smaller" ref="slides/time-machine/slides/32">
+<h1>(we'll get back to that in a bit)</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/33">
+<h1>Spring 3.0</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/34">
+<pre class="sh_java"><code>@Configuration</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/time-machine/slides/35">
+<pre class="sh_java"><code>@Bean</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center smaller" ref="slides/time-machine/slides/36">
+<h1>(quick refresher)</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/37">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/38">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>// @Configuration classes =~ &lt;beans/&gt; documents
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/39">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class AppConfig {
+    // @Bean methods ~= &lt;bean/&gt; elements
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/40">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = // instantiate
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/41">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+        // configure
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/42">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService; // object managed by Spring
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/43">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>@Import(OtherConfig.class) // =~ &lt;import/&gt;
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/44">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>@Import(OtherConfig.class)
+@Configuration
+public class AppConfig {
+    @Autowired QuoteSource quoteSource; // from OtherConfig
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/45">
+<h1>bean definition</h1>
+
+<pre class="sh_java"><code>@Import(OtherConfig.class)
+@Configuration
+public class AppConfig {
+    @Autowired QuoteSource quoteSource;
+    @Bean
+    public QuoteService quoteService() {
+        RealTimeQuoteService quoteService = ...;
+        quoteService.setQuoteSource(quoteSource); // inject
+        return quoteService;
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/46">
+<h1>bootstrap and use</h1>
+
+<pre class="sh_java"><code>
+public class Main {
+
+  public static void main(String... args) {
+
+    ApplicationContext ctx =
+      new AnnotationConfigApplicationContext(AppConfig.class);
+
+    QuoteService quoteService =
+      ctx.getBean(QuoteService.class);
+
+    System.out.println(quoteService.currentValue("AAPL"));
+
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/47">
+<h1>bootstrap and use</h1>
+
+<pre class="sh_java"><code>
+public class Main {
+
+  public static void main(String... args) {
+    // bootstrap the Spring container
+    ApplicationContext ctx =
+      new AnnotationConfigApplicationContext(AppConfig.class);
+
+    QuoteService quoteService =
+      ctx.getBean(QuoteService.class);
+
+    System.out.println(quoteService.currentValue("AAPL"));
+
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/48">
+<h1>bootstrap and use</h1>
+
+<pre class="sh_java"><code>
+public class Main {
+
+  public static void main(String... args) {
+
+    ApplicationContext ctx =
+      new AnnotationConfigApplicationContext(AppConfig.class);
+    // retrieve the bean we want to use in type-safe fashion
+    QuoteService quoteService =
+      ctx.getBean(QuoteService.class);
+
+    System.out.println(quoteService.currentValue("AAPL"));
+
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/time-machine/slides/49">
+<h1>bootstrap and use</h1>
+
+<pre class="sh_java"><code>
+public class Main {
+
+  public static void main(String... args) {
+
+    ApplicationContext ctx =
+      new AnnotationConfigApplicationContext(AppConfig.class);
+
+    QuoteService quoteService =
+      ctx.getBean(QuoteService.class);
+    // use the bean however desired
+    System.out.println(quoteService.currentValue("AAPL"));
+
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/time-machine/slides/50">
+<h1>"Java Configuration"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/time-machine/slides/51">
+<h1>Java Configuration</h1>
+
+<ul>
+<li>type-safe, object-oriented</li>
+<li>can configure any component</li>
+<li>complete programmatic control</li>
+<li>no special tooling required</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/time-machine/slides/52">
+<h1>But...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/time-machine/slides/53">
+<h1>Java Configuration</h1>
+
+<ul>
+<li>no equivalent to <code>&lt;namespace:*/&gt;</code></li>
+<li>xml still required for tx mgmt, aop, etc</li>
+<li>no support in <em>TestContext</em> framework</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="slides/enable/slides/1">
+<h1>back to the future</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/2">
+<h1>Spring 3.1</h1>
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/3">
+<h1><code>Environment</code> API</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/4">
+<h1><code>PropertySource</code> API</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/5">
+<h1><code>&lt;beans profile="dev"/&gt;</code></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/6">
+<h1><code>@Profile("dev")</code></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/7">
+<h1>nested <code>&lt;beans/&gt;</code></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/8">
+<h1><code>c:</code> namespace</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/enable/slides/9">
+<ul>
+<li><a href="http://blog.springsource.com/2011/02/11/spring-framework-3-1-m1-released"><code>Environment</code> blog post</a></li>
+<li><a href="http://blog.springsource.com/2011/02/14/spring-3-1-m1-introducing-profile"><code>@Profile</code> blog post</a></li>
+<li><a href="http://blog.springsource.com/2011/02/15/spring-3-1-m1-unified-property-management"><code>PropertySource</code> blog post</a></li>
+<li><a href="http://www.infoq.com/presentations/Configuration-in-Spring-3-1">InfoQ talk on all the above</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/enable/slides/10">
+<h1>testing support</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/enable/slides/11">
+<h1>"TestContext Framework"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/enable/slides/12">
+<h1>TestContext Framework</h1>
+
+<ul>
+<li>Since Spring 2.5</li>
+<li>Eases <em>integration testing</em> with Spring</li>
+<li>Support for JUnit and TestNG</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/13">
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/14">
+<pre class="sh_java"><code>@ContextConfiguration</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/15">
+<h1>2.5</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration("app-context.xml")
+public class MyTest {
+    @Autowired MyBean bean;
+
+    @Test
+    public void testXyz() {
+
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/16">
+<h1>2.5</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+// ApplicationContext will be loaded from app-context.xml
+@ContextConfiguration("app-context.xml")
+public class MyTest {
+    @Autowired MyBean bean;
+
+    @Test
+    public void testXyz() {
+
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/17">
+<h1>2.5</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration("app-context.xml")
+public class MyTest {
+    @Autowired MyBean bean; // injected from app-context.xml
+
+    @Test
+    public void testXyz() {
+
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/18">
+<h1>2.5</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration("app-context.xml")
+public class MyTest {
+    @Autowired MyBean bean;
+
+    @Test
+    public void testXyz() {
+        // assertions against bean
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/19">
+<h1>3.1</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration(classes=AppConfig.class)
+public class MyTest {
+    @Autowired MyBean bean;
+
+    @Test
+    public void testXyz() {
+        // assertions against bean
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/20">
+<h1>3.1</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+// ApplicationContext will be loaded from AppConfig
+@ContextConfiguration(classes=AppConfig.class)
+public class MyTest {
+    @Autowired MyBean bean;
+
+    @Test
+    public void testXyz() {
+        // assertions against bean
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/21">
+<h1>3.1</h1>
+
+<pre class="sh_java"><code>@RunWith(SpringJUnit4ClassRunner.class)
+
+@ContextConfiguration(classes=AppConfig.class)
+public class MyTest {
+    @Autowired MyBean bean; // injected from AppConfig
+
+    @Test
+    public void testXyz() {
+        // assertions against bean
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/enable/slides/22">
+<h1>TestContext Framework</h1>
+
+<ul>
+<li>Fully updated for Spring 3.1</li>
+<li>Support for <code>@Configuration</code>, <code>@Profile</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center bullets incremental" ref="slides/enable/slides/23">
+<ul>
+<li>Much more on testing at Sam's and Rossen's talk on
+<a href="http://www.springone2gx.com/conference/chicago/2011/10/session?id=24020">Friday at 10:15</a></li>
+<li>Updated TestContext <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/spring-framework-reference/htmlsingle/spring-framework-reference.html#testcontext-ctx-management-javaconfig">reference documentation</a></li>
+<li><a href="http://blog.springsource.com/2011/06/21/spring-3-1-m2-testing-with-configuration-classes-and-profiles/">Testing with <code>@Configuration</code> classes</a> blog post</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/24">
+<h1><code>@Enable*</code></h1>
+
+<br/><br/>
+
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/25">
+<h1><code>@Enable*</code></h1>
+
+<p> <em>(and friends)</em></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/enable/slides/26">
+<h1>e.g.</h1>
+
+<pre class="sh_java"><code>@EnableTransactionManagement
+@EnableAspectJAutoProxy
+@EnableLoadTimeWeaving
+@EnableScheduling
+@EnableAsync
+@EnableWebMvc
+@ComponentScan</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/27">
+<h1>Simple.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/28">
+<h1>I mean, if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Component
+public class TehAwesome {
+    @Autowired
+    public void setStuff(Stuff stuff) { ... }
+}</code></pre>
+
+<br/><br/><br/><br/>
+
+
+<br/><br/><br/><br/>
+
+
+<br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/29">
+<h1>I mean, if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Component
+public class TehAwesome {
+    @Autowired
+    public void setStuff(Stuff stuff) { ... }
+}</code></pre>
+
+<h1>... then <em>this</em> is kind of ironic ...</h1>
+
+<pre class="sh_xml"><code>&lt;context:component-scan base-package="com.win"/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/30">
+<h1>I mean, if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Component
+public class TehAwesome {
+    @Autowired
+    public void setStuff(Stuff stuff) { ... }
+}</code></pre>
+
+<h1>... but <em>this</em> makes a lot more sense.</h1>
+
+<pre class="sh_java"><code>@ComponentScan("com.win")</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/31">
+<h1>and if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Repository
+public class WidgetRepo {
+    @Transactional
+    public void add(Widget widget) { ... }
+}</code></pre>
+
+<br/><br/><br/><br/>
+
+
+<br/><br/><br/><br/>
+
+
+<br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/32">
+<h1>and if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Repository
+public class WidgetRepo {
+    @Transactional
+    public void add(Widget widget) { ... }
+}</code></pre>
+
+<h1>... then why do this ...</h1>
+
+<pre class="sh_xml"><code>&lt;tx:annotation-driven/&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller incremental bullets" ref="slides/enable/slides/33">
+<h1>and if you've got this</h1>
+
+<pre class="sh_java"><code>package com.win;
+
+@Repository
+public class WidgetRepo {
+    @Transactional
+    public void add(Widget widget) { ... }
+}</code></pre>
+
+<h1>... when you could do this?</h1>
+
+<pre class="sh_xml"><code>@EnableTransactionManagement</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/34">
+<h1>Example</h1>
+
+<br/><br/><br/><br/>
+
+
+<br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/35">
+<h1>Example</h1>
+
+<pre class="sh_java"><code>@EnableScheduling</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content center" ref="slides/enable/slides/36">
+<h1>(Trivial) Example</h1>
+
+<pre class="sh_java"><code>@EnableScheduling</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/37">
+<h1>some component</h1>
+
+<pre class="sh_java"><code>package com.startup;
+
+public class ChatterBox {
+
+
+    public void saySomething() {
+        System.out.println(randomWord());
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/38">
+<h1>some component</h1>
+
+<pre class="sh_java"><code>package com.startup;
+
+public class ChatterBox {
+
+    @Scheduled(fixedRate=1000)
+    public void saySomething() {
+        System.out.println(randomWord());
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/39">
+<h1>some component</h1>
+
+<pre class="sh_java"><code>package com.startup;
+
+public class ChatterBox {
+                               // (@Scheduled has been
+    @Scheduled(fixedRate=1000) // around since Spring 3.0)
+    public void saySomething() {
+        System.out.println(randomWord());
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/40">
+<h1>some component</h1>
+
+<pre class="sh_java"><code>package com.startup;
+
+public class ChatterBox {
+                               // "hey Spring, call this
+    @Scheduled(fixedRate=1000) // method every second"
+    public void saySomething() {
+        System.out.println(randomWord());
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/41">
+<h1>configuration</h1>
+
+<pre class="sh_java"><code>package com.startup.config;
+
+
+@Configuration
+public class Config {
+    @Bean
+    public ChatterBox chatterBox() {
+        return new ChatterBox();
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content smaller" ref="slides/enable/slides/42">
+<h1>configuration</h1>
+
+<pre class="sh_java"><code>package com.startup.config;
+
+@Configuration
+@EnableScheduling
+public class Config {
+    @Bean
+    public ChatterBox chatterBox() {
+        return new ChatterBox();
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/43">
+<h1>configuration</h1>
+
+<pre class="sh_java"><code>package com.startup.config;
+
+@Configuration
+@EnableScheduling // look for and process @Scheduled
+public class Config {
+    @Bean
+    public ChatterBox chatterBox() {
+        return new ChatterBox();
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/44">
+<h1>configuration</h1>
+
+<pre class="sh_java"><code>package com.startup.config;
+
+@Configuration
+@EnableScheduling
+public class Config {
+    @Bean
+    public ChatterBox chatterBox() {
+        return new ChatterBox(); // saySomething() method
+    }                            // called once per second
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/enable/slides/45">
+<h1>configuration</h1>
+
+<pre class="sh_java"><code>package com.startup.config;
+
+@Configuration
+@EnableScheduling // ok, so what does this do?
+public class Config {
+    @Bean
+    public ChatterBox chatterBox() {
+        return new ChatterBox();
+    }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="scrollLeft"><div class="content smaller" ref="slides/enable/slides/46">
+<h1>EnableScheduling.java</h1>
+
+<pre class="sh_java"><code>package org.springframework.scheduling.annotation;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Import(SchedulingConfiguration.class)
+@Documented
+public @interface EnableScheduling {
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content smaller" ref="slides/enable/slides/47">
+<h1>EnableScheduling.java</h1>
+
+<pre class="sh_java"><code>package org.springframework.scheduling.annotation;
+
+
+
+@Import(SchedulingConfiguration.class) // this is the key =&gt;
+
+public @interface EnableScheduling {
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="scrollLeft"><div class="content smaller" ref="slides/enable/slides/48">
+<h1>SchedulingConfiguration.java</h1>
+
+<pre class="sh_java"><code>package org.springframework.scheduling.annotation;
+
+@Configuration
+public class SchedulingConfiguration {
+
+    @Bean(name=SCHEDULED_ANNOTATION_PROCESSOR_BEAN_NAME)
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    public ScheduledAnnotationBeanPostProcessor sabpp() {
+        return new ScheduledAnnotationBeanPostProcessor();
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content smaller" ref="slides/enable/slides/49">
+<h1>SchedulingConfiguration.java</h1>
+
+<pre class="sh_java"><code>package org.springframework.scheduling.annotation;
+
+@Configuration
+public class SchedulingConfiguration {
+
+    // it's just registering the @Scheduled bean
+    // post processor on your behalf
+    public ScheduledAnnotationBeanPostProcessor sabpp() {
+        return new ScheduledAnnotationBeanPostProcessor();
+    }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/enable/slides/50">
+<h1>moving parts</h1>
+
+<ul>
+<li><code>@Import</code> now supported at annotation level</li>
+<li><code>@Enable*</code> is just a naming convention</li>
+<li><code>@Configuration</code> classes shipped out of the box</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/enable/slides/51">
+<h1>design goal</h1>
+
+<ul>
+<li>Build on existing concepts</li>
+<li><em>"<code>@Configuration</code> all the way down"</em></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection incremental bullets" ref="slides/enable/slides/52">
+<h1>but what about...</h1>
+
+<ul>
+<li>transparency</li>
+<li>extensibility</li>
+<li>flexibility</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets" ref="slides/enable/slides/53">
+<h1>but what about...</h1>
+
+<ul>
+<li>transparency ... check</li>
+<li>extensibility</li>
+<li>flexibility</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets" ref="slides/enable/slides/54">
+<h1>but what about...</h1>
+
+<ul>
+<li>transparency ... check</li>
+<li>extensibility ... ?</li>
+<li>flexibility</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets" ref="slides/enable/slides/55">
+<h1>but what about...</h1>
+
+<ul>
+<li>transparency ... check</li>
+<li>extensibility ... ?</li>
+<li>flexibility ... ?</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/56">
+<h1>(Not-so-trivial) Example</h1>
+
+<br/><br/><br/>
+
+
+<br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/enable/slides/57">
+<h1>(Not-so-trivial) Example</h1>
+
+<pre class="sh_java"><code>@EnableWebMvc</code></pre>
+
+<p class="notes">throw to Rossen here</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/1">
+<h1>Spring MVC Configuration</h1>
+
+<h2>(Quick Refresher)</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/2">
+<h1>(1) Default Configuration</h1>
+
+<ul>
+<li>I.e. blank <code>&lt;name&gt;-servlet.xml</code></li>
+<li><code>DispatcherServlet.properties</code></li>
+<li><code>HandlerMapping</code>, <code>HandlerAdapter</code> .. and other types to instantiate by default</li>
+<li>Add own type .. turns off default types</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/3">
+<h1>Default Config Experience</h1>
+
+<ul>
+<li>Intentionally minimalistic</li>
+<li>Fairly neutral</li>
+<li>Flexible</li>
+<li>Can be verbose for common tasks</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/4">
+<h1>(2) MVC Namespace</h1>
+
+<ul>
+<li>Minimize boilerplate for @MVC</li>
+<li>Targets the 80% use case</li>
+<li>More opinionated</li>
+<li>Serves as starting point</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/5">
+<h1>MVC Namespace Experience</h1>
+
+<ul>
+<li>Does a number of useful things</li>
+<li>Minimizes boilerplate</li>
+<li>Transparent .. ?</li>
+<li>Flexible .. ?</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/6">
+<h1>What's Behind...</h1>
+
+<pre class="sh_xml"><code>
+      &lt;mvc:annotation-driven /&gt;</code></pre>
+
+<ul>
+<li>Find <code>BeanDefinitionParser</code></li>
+<li>Read meta-data code</li>
+<li>How to customize?</li>
+<li><a href="https://jira.springsource.org/browse/SPR-8648?focusedCommentId=70352=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-70352"><code>BeanPostProcessor works</code></a> .. not obvious!</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/7">
+<h1>Ease-of-use vs. Control</h1>
+
+<ul>
+<li>A good starting point is important</li>
+<li>But transparency is key in MVC config</li>
+<li>So is flexibility</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/8">
+<h1>(3) MVC Java Config</h1>
+
+<h2>(Spring 3.1)</h2>
+
+<ul>
+<li>Designed with preivous experiences in mind</li>
+<li>Match MVC namespace capabilities</li>
+<li>More transparent</li>
+<li>More flexible</li>
+</ul>
+
+
+<p class="notes">Many copy+paste AnnotationMethodHandlerAdapter config not seeing it overlaps with the config from &lt;mvc:annotation-driven /&gt;</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/web-mvc-config/slides/9">
+<h1>MVC Java Config Example</h1>
+
+<h2>(Spring 3.1)</h2>
+
+<pre class="sh_java"><code>
+    // Equivalent to &lt;mvc:annotation:driven/&gt;
+
+    @EnableWebMvc
+    @Configuration
+    public class WebConfig {
+
+    }</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/web-mvc-config/slides/10">
+<h1>MVC Java Config Example</h1>
+
+<h2>(Spring 3.1)</h2>
+
+<pre class="sh_java"><code>
+    // Equivalent to &lt;mvc:annotation:driven/&gt;
+
+    @EnableWebMvc   // &lt;-- What's behind ? 
+    @Configuration
+    public class WebConfig {
+
+    }</code></pre>
+</div>
+</div><div class="slide" data-transition="scrollLeft"><div class="content small" ref="slides/web-mvc-config/slides/11">
+<h1><code>@EnableWebMvc</code></h1>
+
+<pre class="sh_java"><code>
+    @Retention(RetentionPolicy.RUNTIME)
+    @Import(DelegatingWebMvcConfiguration.class)
+    @Target(ElementType.TYPE)
+    public @interface EnableWebMvc {
+
+    }</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content small" ref="slides/web-mvc-config/slides/12">
+<h1><code>@EnableWebMvc</code></h1>
+
+<pre class="sh_java"><code>
+
+    @Import(DelegatingWebMvcConfiguration.class)
+
+    public @interface EnableWebMvc {
+
+    }</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/web-mvc-config/slides/13">
+<h1>Load MVC Java Config in <code>web.xml</code></h1>
+
+<pre class="sh_xml"><code>
+    &lt;!-- 1. Change ApplicationContext type --&gt;
+
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextClass&lt;/param-name&gt;
+        &lt;param-value&gt;
+            org.springframework.web.context.support.
+              AnnotationConfigWebApplicationContext
+        &lt;/param-value&gt;
+    &lt;/context-param&gt;
+
+    &lt;!-- 2. Point to package with @Configuration classes --&gt;
+
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;
+            org.example.somepackage
+        &lt;/param-value&gt;
+    &lt;/context-param&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/14">
+<h1>Built-in Customizations</h1>
+
+<ul>
+<li>Implement <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html"><code>WebMvcConfigurer</code></a></li>
+<li>Or extend <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.html"><code>WebMvcConfigurerAdapter</code></a></li>
+<li>Simple, discoverable config API</li>
+<li>Matches MVC namespace</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/web-mvc-config/slides/15">
+<h1>Customization Example</h1>
+
+<pre class="sh_java"><code>
+@EnableWebMvc
+@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+  @Override
+  protected void addFormatters(FormatterRegistry registry) {
+    // ...
+  }
+
+  @Override
+  public void addInterceptors(InterceptorRegistry reg){
+    // Equivalent to &lt;mvc:interceptors&gt;
+  }
+
+  @Override
+  public void addViewControllers(ViewControllerRegistry reg) {
+    // Equivalent to &lt;mvc:view-controller&gt;
+  }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none">
+  <div class="content" ref="slides/web-mvc-config/slides/16">
+<h1>Demo</h1>
+
+<br>
+
+
+<p><strong><a href="https://github.com/SpringSource/greenhouse">https://github.com/SpringSource/greenhouse</a></strong></p>
+
+<br>
+
+
+<p><a href="https://github.com/SpringSource/greenhouse/blob/master/src/main/webapp/WEB-INF/web.xml"><code>src/main/webapp/WEB-INF/web.xml</code></a><br><br>
+<a href="https://github.com/SpringSource/greenhouse/tree/master/src/main/java/com/springsource/greenhouse/config"><code>com.springsource.greenhouse.config</code></a><br><br>
+<a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html"><code>WebMvcConfigurer</code></a></br>
+</br>
+</br>
+</br></p></br></br></div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/17">
+<h1>Beyond The Common Case</h1>
+
+<ul>
+<li><a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html"><code>WebMvcConfigurer</code></a> targets the 80%</li>
+<li>A good starting point</li>
+<li>Like the MVC namespace</li>
+<li>Transparency .. ?</li>
+<li>Flexibility .. ?</li>
+</ul>
+
+
+<p class="notes">Once again the ease-of-use vs. control issue exceptin this time not a dilemma</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/18">
+<h1>See Provided Config</h1>
+
+<ul>
+<li>Inspect <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.html"><code>WebMvcConfigurationSupport</code></a></li>
+<li>The config imported via <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html"><code>@EnableWebMvc</code></a></li>
+<li>Class javadoc lists created beans</li>
+<li>Or read <code>@Bean</code> methods</li>
+</ul>
+
+
+<p class="notes">Easier to read is relative to reading BeanDefinitionParser code with the MVC namespace</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/web-mvc-config/slides/19">
+<h1>Switch To Advanced Config</h1>
+
+<ul>
+<li>Remove <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html"><code>@EnableWebMvc</code></a></li>
+<li>Extend <a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.html"><code>WebMvcConfigurationSupport</code></a></li>
+<li>Override the same methods as in <code>WebMvcConfigurer</code></li>
+<li>Also override any <code>@Bean</code> methods!</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/web-mvc-config/slides/20">
+<h1>Advanced Config Example</h1>
+
+<pre class="sh_java"><code>
+@Configuration
+public class WebConfig extends WebMvcConfigurationSupport {
+
+  @Override
+  public void addInterceptors(InterceptorRegistry reg){
+    // Equivalent to &lt;mvc:interceptors&gt;
+  }
+
+  @Override
+  @Bean
+  public RequestMappingHandlerAdapter 
+                requestMappingHandlerAdapter() {
+
+      // Create or let "super" create and customize 
+      // RequestMappingHandlerAdapter ...
+
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none">
+  <div class="content" ref="slides/web-mvc-config/slides/21">
+<h1>Demo</h1>
+
+<br>
+
+
+<p><strong><a href="https://github.com/rstoyanchev/spring-mvc-31-demo">https://github.com/rstoyanchev/spring-mvc-31-demo</a></strong></p>
+
+<br>
+
+
+<p><a href="https://github.com/rstoyanchev/spring-mvc-31-demo/tree/master/src/main/java/org/springframework/samples/mvc31/config"><code>org.springframework.samples.mvc31.config</code></a><br><br>
+<a href="http://static.springsource.org/spring/docs/3.1.0.RC1/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.html"><code>WebMvcConfigurationSupport</code></a></br>
+</br>
+</p>
+</br></br></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/1">
+<h1><code>@Enable*</code></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/xml-is-over/slides/2">
+<h1>benefits</h1>
+
+<ul>
+<li>easy to see what's going on</li>
+<li>easy to write your own</li>
+<li>scales smoothly from simple to sophisticated</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/xml-is-over/slides/3">
+<h1>"Java Configuration"</h1>
+
+<ul>
+<li>(completed)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/xml-is-over/slides/4">
+<h1>Java Configuration (3.1)</h1>
+
+<ul>
+<li>completes the vision</li>
+<li>can configure all major container features</li>
+<li>mix and match styles as desired</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/xml-is-over/slides/5">
+<h1>But...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller subsection" ref="slides/xml-is-over/slides/6">
+<h1>But... ?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/xml-is-over/slides/7">
+<h1>No buts.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/xml-is-over/slides/8">
+<h1>No buts.</h1>
+
+<ul>
+<li>can be adopted incrementally</li>
+<li>but can go <em>all the way</em></li>
+<li>which means...</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/9">
+<p><img src="./file/slides/xml-is-over/xml-is-over.jpg" alt="xml-is-over.jpg"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/10">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<br/><br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/11">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<p>for dependency injection</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/12">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<p>for enabling features of the Spring container</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/13">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<p>for Hibernate integration, too</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center bullets incremental" ref="slides/xml-is-over/slides/14">
+<h1>Hibernate 4 support</h1>
+
+<ul>
+<li>Spring 3.1 RC1 builds against Hib 4.0.0.CR4</li>
+<li>3.1 GA will sync with 4.0 Final</li>
+<li>new orm.hibernate4 packaging</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/15">
+<h1>Familiar?</h1>
+
+<pre class="sh_xml"><code>&lt;bean id="sessionFactory"
+    class="org.sfwk.orm.hibernate3.LocalSessionFactoryBean"&gt;
+  &lt;property name="dataSource" ref="myDataSource"/&gt;
+  &lt;property name="mappingResources"&gt;
+    &lt;list&gt;
+      &lt;value&gt;Person.hbm.xml&lt;/value&gt;
+      &lt;value&gt;Account.hbm.xml&lt;/value&gt;
+    &lt;/list&gt;
+  &lt;/property&gt;
+  &lt;property name="hibernateProperties"&gt;
+    &lt;value&gt;
+      hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    &lt;/value&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/16">
+<h1>Or even</h1>
+
+<pre class="sh_xml"><code>&lt;bean id="sessionFactory"
+    class="org.sfwk.orm.hib3.AnnotationSessionFactoryBean"&gt;
+  &lt;property name="dataSource" ref="myDataSource"/&gt;
+  &lt;property name="annotatedClasses"&gt;
+    &lt;list&gt;
+      &lt;value&gt;com.foo.Person&lt;/value&gt;
+      &lt;value&gt;com.foo.Account&lt;/value&gt;
+    &lt;/list&gt;
+  &lt;/property&gt;
+  &lt;property name="hibernateProperties"&gt;
+    &lt;value&gt;
+      hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    &lt;/value&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/17">
+<h1>Or even</h1>
+
+<pre class="sh_xml"><code>&lt;bean id="sessionFactory"
+    class="org.sfwk.orm.hib3.AnnotationSessionFactoryBean"&gt;
+  &lt;property name="dataSource" ref="myDataSource"/&gt;
+  &lt;property name="annotatedClasses"&gt;
+    &lt;list&gt;
+      &lt;value&gt;com.foo.Person&lt;/value&gt; &lt;!-- again the irony --&gt;
+      &lt;value&gt;com.foo.Account&lt;/value&gt;
+    &lt;/list&gt;
+  &lt;/property&gt;
+  &lt;property name="hibernateProperties"&gt;
+    &lt;value&gt;
+      hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    &lt;/value&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/18">
+<h1>We can do better than that.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/19">
+<pre class="sh_java"><code>@Bean
+public SessionFactory sessionFactory() {
+    return new LocalSessionFactoryBuilder(dataSource())
+        .addAnnotatedClasses(Person.class, Account.class)
+        .buildSessionFactory();
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/xml-is-over/slides/20">
+<h1>LocalSessionFactoryBuilder</h1>
+
+<ul>
+<li>Extends Hibernate's own Configuration class</li>
+<li>only in the new orm.hibernate4 package</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/21">
+<h1>Also...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/22">
+<h1>standalone Hibernate exception translator</h1>
+
+<pre class="sh_java"><code>@Bean
+public SessionFactory sessionFactory() {
+    return new LocalSessionFactoryBuilder(dataSource())
+        .addAnnotatedClasses(Person.class, Account.class)
+        .buildSessionFactory();
+}
+
+@Bean
+public PersistenceExceptionTranslator exTranslator() {
+    return new HibernateExceptionTranslator();
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/23">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<br/><br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/24">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<p>and not just <em>Spring</em> XML</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center incremental bullets" ref="slides/xml-is-over/slides/25">
+<h1>JPA</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/26">
+<h1>persistence.xml</h1>
+
+<pre class="sh_xml"><code>&lt;persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="..."
+             xsi:schemaLocation="..."
+             version="2.0"&gt;
+   &lt;persistence-unit name="sample"&gt;
+      &lt;jta-data-source&gt;java:/DefaultDS&lt;/jta-data-source&gt;
+      &lt;properties&gt;
+         &lt;property name="hibernate.dialect"
+                 value="org.hibernate.dialect.HSQLDialect"/&gt;
+      &lt;/properties&gt;
+   &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/xml-is-over/slides/27">
+<h1>say goodbye.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/28">
+<pre class="sh_java"><code>@Bean
+public LocalContainerEntityManagerFactoryBean emf() {
+    LocalContainerEntityManagerFactoryBean emf =
+        new LocalContainerEntityManagerFactoryBean();
+    emf.setDataSource(dataSource());
+    emf.setPersistenceXmlLocation(
+        "classpath:META-INF/persistence.xml");
+    return emf;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/29">
+<pre class="sh_java"><code>@Bean
+public LocalContainerEntityManagerFactoryBean emf() {
+    LocalContainerEntityManagerFactoryBean emf =
+        new LocalContainerEntityManagerFactoryBean();
+    emf.setDataSource(dataSource());
+    emf.setPersistenceXmlLocation(
+        "classpath:META-INF/persistence.xml"); // no more!
+    return emf;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/30">
+<pre class="sh_java"><code>@Bean
+public LocalContainerEntityManagerFactoryBean emf() {
+    LocalContainerEntityManagerFactoryBean emf =
+        new LocalContainerEntityManagerFactoryBean();
+    emf.setDataSource(dataSource());
+
+    emf.setPackagesToScan("com.win.entity");
+    return emf;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/31">
+<pre class="sh_java"><code>@Bean
+public LocalContainerEntityManagerFactoryBean emf() {
+    LocalContainerEntityManagerFactoryBean emf =
+        new LocalContainerEntityManagerFactoryBean();
+    emf.setDataSource(dataSource());
+    // scan classpath for JPA @Entity types
+    emf.setPackagesToScan("com.win.entity");
+    return emf;
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/32">
+<h1><strong>XML IS OVER!</strong></h1>
+
+<p>and not just <em>Spring</em> XML</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/xml-is-over/slides/33">
+<h1>web.xml</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller bullets incremental" ref="slides/xml-is-over/slides/34">
+<h1>web.xml</h1>
+
+<pre class="sh_xml"><code>&lt;web-app&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;
+      org.springframework.web.servlet.DispatcherServlet
+    &lt;/servlet-class&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;
+        /WEB-INF/spring/dispatcher-config.xml
+      &lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+&lt;web-app&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="slides/xml-is-over/slides/35">
+<h1>Gone.</h1>
+
+<ul>
+<li>(if you've got Servlet 3)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/xml-is-over/slides/36">
+<h1>equivalent</h1>
+
+<pre class="sh_java"><code>public class WebInit implements WebApplicationInitializer {
+
+   @Override
+   public void onStartup(ServletContext container) {
+     XmlWebApplicationContext ctx =
+       new XmlWebApplicationContext()
+
+     ctx.setConfigLocation(
+       "/WEB-INF/spring/dispatcher-config.xml");
+
+     ServletRegistration.Dynamic dispatcher =
+       container.addServlet(
+        "dispatcher", new DispatcherServlet(ctx));
+
+     dispatcher.setLoadOnStartup(1);
+     dispatcher.addMapping("/");
+   }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content smaller" ref="slides/xml-is-over/slides/37">
+<h1>even better</h1>
+
+<pre class="sh_java"><code>public class WebInit implements WebApplicationInitializer {
+
+   @Override
+   public void onStartup(ServletContext container) {
+     AnnotationConfigWebApplicationContext ctx =
+       new AnnotationConfigWebApplicationContext()
+
+     ctx.register(DispatcherConfig.class);
+
+
+     ServletRegistration.Dynamic dispatcher =
+       container.addServlet(
+        "dispatcher", new DispatcherServlet(ctx));
+
+     dispatcher.setLoadOnStartup(1);
+     dispatcher.addMapping("/");
+   }
+
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/xml-is-over/slides/38">
+<h1>WebApplicationInitializer</h1>
+
+<ul>
+<li>Builds on Servlet 3's ServletContainerInitializer</li>
+<li>Auto-detected on Servlet container startup</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/xml-is-over/slides/39">
+<ul>
+<li><del>application-context.xml</del></li>
+<li><del>persistence.xml</del></li>
+<li><del>web.xml</del></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/40">
+<h1><strong>XML IS OVER.</strong></h1>
+
+<br/><br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="fade"><div class="content center" ref="slides/xml-is-over/slides/41">
+<p><img src="./file/slides/xml-is-over/over.png" alt="over.png"/></p>
+
+<br/><br/><br/>
+
+
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/xml-is-over/slides/42">
+<p><img src="./file/slides/xml-is-over/if-you-want-it.png" alt="if-you-want-it.png"/></p>
+</div>
+</div><div class="slide" data-transition="fade"><div class="content center" ref="slides/xml-is-over/slides/43">
+<h1><strong>XML IS OVER,</strong></h1>
+
+<p>if you want it*</p>
+</div>
+</div><div class="slide" data-transition="scrollUp"><div class="content small" ref="slides/xml-is-over/slides/44">
+<h1>*which means that you really shouldn't worry, because XML support is definitely not going anywhere. This is a concern that commonly comes up when we talk about annotations and such, but we've said it before and we'll say it again: XML was, is, and ever will be a first class citizen in Spring. The changes in 3.1 just mean that if you <em>don't</em> want XML, you don't have to use it. That's all. kthx, bye.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content incremental bullets" ref="slides/end/slides/1">
+<h1>3.1 RC1 is out</h1>
+
+<ul>
+<li>Now is the time to test</li>
+<li>RC2 in a couple weeks</li>
+<li>GA by year end</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets" ref="slides/end/slides/2">
+<h1>Questions?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection bullets" ref="slides/end/slides/3">
+<h1>Thanks!</h1>
+
+<ul>
+<li><a href="http://twitter.com/cbeams"><code>@cbeams</code></a></li>
+<li><a href="http://twitter.com/rstoya05"><code>@rstoya05</code></a></li>
+<li><a href="http://twitter.com/springframework"><code>@springframework</code></a></li>
+<li>this presentation on the web: <a href="http://cbeams.github.com/spring-3.1-config">http://cbeams.github.com/spring-3.1-config</a></li>
+</ul>
+
+</div>
+</div></div>
+
+</body>
+</html>
