@@ -55,17 +55,7 @@ Import the project into Eclipse/STS:
 
     gradlew eclipse
 
-to update .classpath file with paths to the dependency jars you just downloaded
-(note that .project and .springBeans files already exist).  This command will
-also retrive and link dependency source jars. After this is complete, you can
-import the project as follows:
-
     File->Import->Existing Projects Into Workspace
-
-If using STS (http://www.springsource.com/developer/sts), you'll be glad to know
-that the Spring Project Nature has already been applied for you in the .project
-file, so you should have complete tooling for the Spring XML files in the
-project without any extra steps.
 
 
 Import the project into IntellJ IDEA:
