@@ -36,7 +36,6 @@ configure(subprojects) {
         }
     }
 
-    // ensure java 1.6 compatibility
     sourceCompatibility=1.6
     targetCompatibility=1.6
 
@@ -50,8 +49,7 @@ configure(subprojects) {
     }
 }
 
-configure([project(':style-2-namespace'),
-           project(':style-3-autowired'),
+configure([project(':style-3-autowired'),
            project(':style-4-javaconfig'),
            project(':style-5-hybrid')]) {
     dependencies {
