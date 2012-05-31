@@ -14,6 +14,7 @@
 
 !SLIDE bullets
 * this presentation [http://cbeams.github.com/distyles](http://cbeams.github.com/distyles)
+* recorded webinar [http://www.youtube.com/watch?v=dJh84cjMY3E](http://www.youtube.com/watch?v=dJh84cjMY3E)
 * `style-*` project sources [http://github.com/cbeams/distyles](http://github.com/cbeams/distyles)
 
 !SLIDE subsection
