@@ -6,10 +6,10 @@ configure(subprojects) {
     apply plugin: 'idea'
 
     repositories {
-        maven { url "http://repo.springsource.org/libs-release" }
+        maven { url "http://repo.springsource.org/libs-milestone" }
     }
 
-    ext.springVersion = '3.1.1.RELEASE'
+    ext.springVersion = '3.2.0.M1'
 
     dependencies {
         compile "org.springframework:spring-jdbc:${springVersion}"
@@ -46,6 +46,13 @@ configure(subprojects) {
         description = 'Run the TransferScript main() method'
         main = 'com.bank.app.TransferScript'
         classpath = sourceSets.main.runtimeClasspath
+    }
+}
+
+configure(subprojects - project(':style-0-nospring')) {
+    dependencies {
+        // for ApplicationContext support
+        compile "org.springframework:spring-context:${springVersion}"
     }
 }
 

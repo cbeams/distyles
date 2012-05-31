@@ -9,13 +9,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import org.springframework.aop.Advisor;
-import org.springframework.aop.framework.Advised;
-import org.springframework.aop.support.AopUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import com.bank.domain.InsufficientFundsException;
 import com.bank.domain.TransferReceipt;
@@ -24,6 +20,7 @@ import com.bank.service.internal.DefaultTransferService;
 import com.bank.service.internal.FlatFeePolicy;
 
 import static org.hamcrest.CoreMatchers.*;
+
 import static org.junit.Assert.*;
 
 /**
@@ -61,6 +58,7 @@ public class TransferServiceTests {
 	public void transferServiceIsTransactional() {
 		boolean isTxProxy = false;
 
+		/*
 		if (AopUtils.isAopProxy(transferService)) {
 			for (Advisor advisor : ((Advised)transferService).getAdvisors()) {
 				if (TransactionInterceptor.class.equals(advisor.getAdvice().getClass())) {
@@ -68,6 +66,7 @@ public class TransferServiceTests {
 				}
 			}
 		}
+		*/
 
 		assertTrue("transferService does not have transactional advice applied", isTxProxy);
 	}
